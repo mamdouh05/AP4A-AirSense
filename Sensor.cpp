@@ -17,30 +17,6 @@ Sensor::Sensor(const std::string& type, Server* server, std::chrono::millisecond
         throw std::invalid_argument("La periode doit etre positive.");
 }
 
-Sensor::Sensor(const Sensor& other)
-    : id(nextId++),
-      type(other.type),
-      value(other.value),
-      server(other.server),
-      period(other.period),
-      lastExecution(std::chrono::steady_clock::now() - other.period)
-{
-}
-
-Sensor& Sensor::operator=(const Sensor& other)
-{
-    if (this != &other)
-    {
-        type = other.type;
-        value = other.value;
-        server = other.server;
-        period = other.period;
-        lastExecution = other.lastExecution;
-    }
-
-    return *this;
-}
-
 Sensor::~Sensor() = default;
 
 void Sensor::update()

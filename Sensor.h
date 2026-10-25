@@ -22,8 +22,6 @@ protected:
 
 public:
     Sensor(const std::string& type, Server* server, std::chrono::milliseconds period);
-    Sensor(const Sensor& other);
-    Sensor& operator=(const Sensor& other);
     virtual ~Sensor();
 
     virtual void update();
